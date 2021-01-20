@@ -5,8 +5,8 @@ import s from './ContactList.module.css'
 
 const ContactList = ({contacts, onRemove}) => {
     if(contacts.length === 0) {
-            alert('The list is empty')
-            return null;
+        alert('The list is empty')
+        return null;
     }
 
     

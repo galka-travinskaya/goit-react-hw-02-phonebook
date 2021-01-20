@@ -19,9 +19,8 @@ class ContactForm extends Component {
         e.preventDefault();
         this.props.onSubmit(this.state.name, this.state.number);
         const isValidForm = this.validateForm();
-        this.reset();
         if(!isValidForm) return;
-        
+        this.reset();
     }
 
     validateForm = () => {
@@ -31,7 +30,7 @@ class ContactForm extends Component {
             alert('Some field is empty')
             return false
         }
-        return onCheckUnique();
+        return onCheckUnique(name);
     }
 
     // не очищает номер
@@ -41,8 +40,6 @@ class ContactForm extends Component {
             number: '',
         });
     }
-
-
 
     render() {
         return (
