@@ -29,12 +29,12 @@ class App extends Component {
       }
     })
   }
-  // не реагирует
+
   handleCheckUniqueContact = (name) => {
-    const {contact} = this.state;
-    const isExistContact = !!contact.find(contact => contact.name === name);
+    const {contacts} = this.state;
+    const isExistContact = !!contacts.find(contact => contact.name === name);
     isExistContact && alert('Contact is already exist');
-    console.log(alert);
+    
     return !isExistContact;
   }
   

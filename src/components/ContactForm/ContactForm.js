@@ -10,7 +10,6 @@ class ContactForm extends Component {
 
     handleChange = (e) => {
         const {name, value} = e.currentTarget;
-        // const {name, value} = e.target;
         this.setState({
             [name]: value
         })
@@ -20,18 +19,19 @@ class ContactForm extends Component {
         e.preventDefault();
         this.props.onSubmit(this.state.name, this.state.number);
         const isValidForm = this.validateForm();
-        if(!isValidForm) return;
         this.reset();
+        if(!isValidForm) return;
+        
     }
-    // говорит, что onCheckUniqe не ф-ция, не могу найти причину
+
     validateForm = () => {
         const {name, number} = this.state;
-        const {onCheckUniqe} = this.props;
-        if(!name || ! number) {
+        const {onCheckUnique} = this.props;
+        if(!name || !number) {
             alert('Some field is empty')
             return false
         }
-        return onCheckUniqe(name);
+        return onCheckUnique();
     }
 
     // не очищает номер

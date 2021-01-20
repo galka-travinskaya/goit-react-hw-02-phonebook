@@ -5,12 +5,11 @@ import s from './ContactList.module.css'
 
 const ContactList = ({contacts, onRemove}) => {
     if(contacts.length === 0) {
-        // return (
-            // как сделать так, чтоб не выводился 0?
             alert('The list is empty')
             return null;
-        // );
-    };
+    }
+
+    
     return (
         <ul className={s.list}>
         {contacts.map(({name, number, id}) => 
