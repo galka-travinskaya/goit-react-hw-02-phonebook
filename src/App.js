@@ -38,16 +38,6 @@ class App extends Component {
       }
     })
   }
-
-  handleCheckUniqueContact = (name) => {
-    // const {contacts} = this.state;
-
-
-    // const isExistContact = !!contacts.find(contact => contact.name === name);
-    // isExistContact ? alert('Contact is already exist') : alert('Hello');
-    
-    // return !isExistContact;
-  }
   
   deleteContact = (uniqId) => {
     this.setState(prevState => ({
@@ -72,8 +62,7 @@ class App extends Component {
       return (
           <div className={s.container}>
               <ContactForm 
-                onSubmit={this.formSubmitHandler}
-                onCheckUnique={this.handleCheckUniqueContact}/>
+                onSubmit={this.formSubmitHandler} />
 
               <h2>Contacts</h2>
               <Filter 

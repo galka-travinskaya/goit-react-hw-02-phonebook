@@ -21,11 +21,6 @@ class ContactForm extends Component {
         this.props.onSubmit(name, number, this.reset);
         const isValidForm = this.validateForm();
 
-        // if (contacts.find(({ name }) => name.toLowerCase() === this.state.name.toLowerCase())) {
-        //     alert('Contact is already exist');
-        //     return
-        //   }
-
         if(!isValidForm) return;
         
         this.reset();
@@ -33,14 +28,10 @@ class ContactForm extends Component {
 
     validateForm = () => {
         const {name, number} = this.state;
-        const {onCheckUnique} = this.props;
         if(!name || !number) {
             alert('Some field is empty')
-            // для чего тут false?
-            // return false
             return
         }
-        return onCheckUnique(name);
     }
 
     // не очищает номер
