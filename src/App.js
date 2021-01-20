@@ -16,14 +16,23 @@ class App extends Component {
     filter: '',
   };
 
-  formSubmitHandler = (name, number) => {
+  formSubmitHandler = (newName, number, reset) => {
+    console.log(reset);
+
+    if (this.state.contacts.find(({ name }) => name.toLowerCase() === newName.toLowerCase())) {
+          alert('Contact is already exist');
+          reset();
+          return;
+        }
+
     const contact = {
       id: uuid(),
-      name,
+      name: newName,
       number,
     }
     console.log(contact);
     this.setState(prev => {
+      reset();
       return {
         contacts: [...prev.contacts, contact]
       }
@@ -31,11 +40,13 @@ class App extends Component {
   }
 
   handleCheckUniqueContact = (name) => {
-    const {contacts} = this.state;
-    const isExistContact = !!contacts.find(contact => contact.name === name);
-    isExistContact && alert('Contact is already exist');
+    // const {contacts} = this.state;
+
+
+    // const isExistContact = !!contacts.find(contact => contact.name === name);
+    // isExistContact ? alert('Contact is already exist') : alert('Hello');
     
-    return !isExistContact;
+    // return !isExistContact;
   }
   
   deleteContact = (uniqId) => {
