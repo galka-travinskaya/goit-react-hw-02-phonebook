@@ -61,7 +61,7 @@ class ContactForm extends Component {
                     <input 
                         type='tel' 
                         name="number"
-                        value={this.state.nubmer}
+                        value={this.state.number}
                         onChange={this.handleChange}
                     />
                 </label>
